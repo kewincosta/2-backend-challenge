@@ -57,7 +57,7 @@ const result = makeAllPositive(numbers);
 ### **2. Testes de SQL**
 
 > [!WARNING]
-> Faça as queries puras, sem o uso de qualquer framework. Utilizar arquivos com extensão `.sql`
+> Faça as queries puras, sem o uso de qualquer framework. Utilize arquivos com extensão `.sql`
 
 #### **2.1 Consulta com Agregação**
 Dada a tabela `sales` com as colunas:
