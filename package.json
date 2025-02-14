@@ -1,0 +1,26 @@
+{
+  "name": "2-backend-challenge-kewin-costa",
+  "version": "1.0.0",
+  "description": "Bem-vindo(a) ao desafio Backend!",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "sh ./scripts/eslint.sh",
+    "eslint:fix": "sh ./scripts/eslintFix.sh",
+    "test": "sh ./scripts/localTest.sh",
+    "db:start": "sh ./scripts/startDb.sh"
+  },
+  "author": "Kewin Costa",
+  "license": "ISC",
+  "homepage": "https://github.com/VAEES/2-backend-challenge#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.6",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
+    "globals": "^15.15.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0",
+    "vitest": "^3.0.5"
+  }
+}
