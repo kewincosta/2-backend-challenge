@@ -1,5 +1,9 @@
 type DiscountStrategy = (price: number) => number
 
+interface DiscountFactory {
+  getDiscountByType: (discountType: DiscountType) => DiscountStrategy
+}
+
 export enum DiscountType {
   premium = 'premium',
   regular = 'regular'
@@ -9,7 +13,7 @@ function isPriceAbove100(price: number): boolean {
   return price > 100
 }
 
-const createDiscount = (price: number, discountAbove100: number, discountBelow100: number): number => {
+function createDiscount(price: number, discountAbove100: number, discountBelow100: number): number {
   return isPriceAbove100(price) ? discountAbove100 : discountBelow100
 }
 
@@ -25,12 +29,14 @@ const regularDiscount: DiscountStrategy = (price: number) => {
   return createDiscount(price, discountAbove100, discountBelow100)
 }
 
-export const discountFactory = (discountType: DiscountType, price: number): number => {
-  const discountStrategies: Record<DiscountType, number> = {
-    [DiscountType.premium]: premiumDiscount(price),
-    [DiscountType.regular]: regularDiscount(price)
+export function discountFactory(): DiscountFactory {
+  const discountStrategies: Record<DiscountType, DiscountStrategy> = {
+    [DiscountType.premium]: premiumDiscount,
+    [DiscountType.regular]: regularDiscount
   }
-  return discountStrategies[discountType]
+  return {
+    getDiscountByType: (discountType: DiscountType) => discountStrategies[discountType]
+  }
 }
 
 export function calculateDiscount(price: number, discount: number): number {
